@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PhotoStudio Radiance</title>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="images/logo2.png" type="image/png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			jQuery(function($)
+				{
+					$('a[href*="#"]').on('click.smoothscroll', function( e )
+						{
+							var hash    = this.hash, _hash   = hash.replace(/#/,''), theHref = $(this).attr('href').replace(/#.*/, '');
+							if( theHref && location.href.replace(/#.*/,'') != theHref ) return;
+							var $target = _hash === '' ? $('body') : $( hash + ', a[name="'+ _hash +'"]').first();
+							if( ! $target.length ) return;
+							e.preventDefault();
+							$('html, body').stop().animate({ scrollTop: $target.offset().top - 0 }, 800, 'swing', function()
+								{
+									window.location.hash = hash;
+								});
+						});
+				});
+		</script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="
+		sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css"/>
+		<style type="text/css">
+		#slider .indicator ul
+		{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
+
+		#slider 
+		{
+    		position: relative;
+			text-align: center;
+		}
+
+		#slider
+		{
+			margin: 0 auto;
+		}
+
+		#slides article
+		{
+			width: 10%;
+			float: left;
+		}	
+
+		#slides .imagee
+		{
+			width: 500%;
+			line-height: 0;
+		}
+
+		#overflow
+		{
+			width: 100%;
+			overflow: hidden;
+		}
+
+		article img
+		{
+			width: 100%;
+		}
+
+		#desktop:checked ~ #slider
+		{
+			max-width: 100%;
+		}
+
+		#switch1:checked ~ #controls label:nth-child(5), 
+		#switch2:checked ~ #controls label:nth-child(1),
+		#switch3:checked ~ #controls label:nth-child(2),
+		#switch4:checked ~ #controls label:nth-child(3),
+		#switch5:checked ~ #controls label:nth-child(4)
+
+		#switch1:checked ~ #controls label:nth-child(2), 
+		#switch2:checked ~ #controls label:nth-child(3),
+		#switch3:checked ~ #controls label:nth-child(4),
+		#switch4:checked ~ #controls label:nth-child(5),
+		#switch5:checked ~ #controls label:nth-child(1)
+
+		label, a
+		{
+			cursor: pointer;
+		}
+
+		.all input
+		{
+			display: none;
+		}
+
+		#switch1:checked ~ #slides .imagee
+		{
+			margin-left: 0;
+		}
+
+		#switch2:checked ~ #slides .imagee
+		{
+			margin-left: -100%;
+		}
+
+		#switch3:checked ~ #slides .imagee
+		{
+			margin-left: -200%;
+		}
+
+		#switch4:checked ~ #slides .imagee
+		{
+			margin-left: -300%;
+		}
+
+		#switch5:checked ~ #slides .imagee
+		{
+			margin-left: -400%;
+		}
+
+		#controls
+		{
+			margin: -30% 0 0 0;
+			width: 100%;
+			height: 50%;
+		}
+
+		#active label
+		{ 
+			display: inline-block;
+			width: 90px;
+			height: 30px;
+			background: #bbb;
+		}
+
+		#active
+		{
+			margin: 23% 0 0;
+			text-align: center;
+		}
+
+		#active label:hover
+		{
+			background: #76c8ff;
+			border-color: #777 !important;
+		}
+
+			#switch1:checked ~ #active label:nth-child(1),
+			#switch2:checked ~ #active label:nth-child(2),
+			#switch3:checked ~ #active label:nth-child(3),
+			#switch4:checked ~ #active label:nth-child(4),
+			#switch5:checked ~ #active label:nth-child(5){
+			background: rgb(255,213,0);
+			border-color: rgb(255,213,0) !important;
+		}
+
+		#slides .imagee
+		{
+			transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+		}
+
+		#controls label:hover
+		{
+			opacity: 0.6;
+		}
+
+		#controls label
+		{
+			transition: opacity 0.2s ease-out;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="page-wrapper">
+				<div id="header">
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Главная</a></li>
+								<li><a href="#akcia">Услуги</a></li>
+								<li><a href="#contacts">Контакты</a></li>
+							</ul>
+						</nav>
+				</div>
+					<table>
+						<th><img class="logotip4ik" src="images/semen.png"></th>
+						<th><img class="logotip4ik3" src="images/logotip2.png"></th>
+					</table>
+					<div class="all">
+						<input checked type="radio" name="respond" id="desktop">
+							<article id="slider">
+								<input checked type="radio" name="slider" id="switch1">
+								<input type="radio" name="slider" id="switch2">
+								<input type="radio" name="slider" id="switch3">
+								<input type="radio" name="slider" id="switch4">
+								<input type="radio" name="slider" id="switch5">
+				<div id="slides">
+					<div id="overflow">
+						<div class="imagee">
+								<article><img src="images/1.jpg"></article>
+								<article><img src="images/2.jpg"></article>
+								<article><img src="images/3.jpg"></article>
+								<article><img src="images/4.jpg"></article>
+								<article><img src="images/5.jpg"></article>
+								<article><img src="images/6.jpg"></article>
+								<article><img src="images/7.jpg"></article>
+								<article><img src="images/8.jpg"></article>
+								<article><img src="images/9.jpg"></article>
+								<article><img src="images/10.jpg"></article>
+						</div>
+					</div>
+				</div>
+					<div id="controls">
+						<label for="switch1"></label>
+						<label for="switch2"></label>
+						<label for="switch3"></label>
+						<label for="switch4"></label>
+						<label for="switch5"></label>
+					</div>
+						<div id="active">
+							<label for="switch1"></label>
+							<label for="switch2"></label>
+							<label for="switch3"></label>
+							<label for="switch4"></label>
+							<label for="switch5"></label>
+						</div>
+							</article>
+					</div>
+				<section class="wrapper style1"><section id="cta" class="wrapper style3">
+					<div class="container">
+						<header>
+							<h2>Акция! Закажите семейный фотопортрет в стиле БДСМ всего за 3000 рублей! Акция продлится до 31.12.2020</h2>
+							<a href="index.html" class="button">Заказать</a>
+						</header>
+					</div>
+				</section>
+				<a name="akcia"></a>
+				<br>
+				<br>
+				<br>
+					<div class="container">
+						<div class="row">
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="index.html" class="image left"><img src="images/pic01.jpg"></a>
+									<div class="inner">
+										<h3><p style="font-weight: bold">Аренда фотостудии днем (1 час)</p><p style="font-weight: bold">1500 Р</p></h3>
+										<p>Просторный 2х-уровневый зал с огромными окнами. Мягкая цветовая гамма, невероятное обилие света, поможет создать отличные снимки. Зал подойдет для семейной, индивидуальной, свадебной фотосессии и для съемок стильных лукбуков.</p>
+									</div>
+								</div>
+							</section>
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="index.html" class="image left"><img src="images/pic02.jpg"></a>
+									<div class="inner">
+										<h3><p style="font-weight: bold">Аренда фотостудии ночью (1 час)</p><p style="font-weight: bold">2000 Р</p></h3>
+										<p>Светлый роскошный зал отлично подойдёт для свадебной фотосессии. Арки, своды, кессон создают впечатление, будто вы находитесь во дворце. Ничего лишнего и максимум свободного пространства и света.</p>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="row">
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="index.html" class="image left"><img src="images/pic03.jpg"></a>
+									<div class="inner">
+										<h3><p style="font-weight: bold">Аренда фотостудии днем (2 часа)</p><p style="font-weight: bold">3000 Р</p></h3>
+										<p>Просторный 2х-уровневый зал с большой циклорамой, настоящим баром и открытым душем для аквасъемок. Здесь всё выдержано в определенной стилистике: состаренный деревянный пол, фактурные стены, кирпич, бетон.</p>
+									</div>
+								</div>
+							</section>
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="index.html" class="image left"><img src="images/pic04.jpg"></a>
+									<div class="inner">
+										<h3><p style="font-weight: bold">Аренда фотостудии днем (1 час)</p><p style="font-weight: bold">4500 Р</p></h3>
+										<p>Зал выполнен в стиле апартаментов / квартиры-студии. В одной части зала расположена настоящая большая кухня, выполненная в минималистичном стиле, а в другой камин с оформлением в стиле – ботаника. «Number5» идеален для семейных съёмок.</p>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</section>
+				<div id="footer">
+					<div class="container">
+						<div>
+							<section class="3u 6u(narrower)">
+								<a name="contacts"></a>
+								<h3 style="color:white">Наши контакты</h3>
+								<ul>
+									<li style="color:white">Телефон: 228-1337-14-88</li>
+									<li><a href="https://www.google.ru/maps/@55.0586555,82.9083613,3a,75y,32.59h,86.5t/data=!3m6!1e1!3m4!1sPM7eyfHdyb_QWpN6023Z2w!2e0!7i13312!8i6656">ул. Дуси Ковальчук 179 / 1</a></li>
+									<li><a href="https://www.google.ru/maps/@54.9342867,82.9028844,3a,75y,316.24h,76.95t/data=!3m6!1e1!3m4!1saHjatFNldu8PsHXaCvjwig!2e0!7i13312!8i6656">ул. Зорге 10</a></li>
+									<li><a href="https://www.google.ru/maps/@54.9495417,82.8337362,3a,75y,195.2h,83.81t/data=!3m6!1e1!3m4!1s-AhFgGoAfyH48CXh9_mp_w!2e0!7i13312!8i6656">ул. Хилокский рынок</a></li>
+									<li><a href="https://www.google.ru/maps/@54.9502272,82.8303843,3a,75y,306.69h,79.06t/data=!3m6!1e1!3m4!1s8HOp4yncnNDcWUaEuCOZtw!2e0!7i13312!8i6656">ул. Хилокский рынок №228</a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+                            <ul class="icons">
+							<li><a href="index.html"><img src="images\vk.png" height="64" width="64"></a></li>
+							<li><a href="index.html"><img src="images\instagram.png" height="64" width="64"></a></li>
+							<li><a href="index.html"><img src="images\twitter.png" height="64" width="64"></a></li>
+							<li><a href="index.html"><img src="images\google+.png" height="64" width="64"></a></li>
+						</ul>
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; Все права принадлежат <u style="color:white">PhotoStudio Radiance</u></li>
+							</ul>
+						</div>
+				</div>
+		</div>
+	</body>
+</html>
